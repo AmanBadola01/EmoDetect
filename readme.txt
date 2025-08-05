@@ -1,68 +1,106 @@
+# EmoDetect
 
-# Emotion Detection from Images
+A real-time emotion detection application built with TensorFlow and OpenCV. EmoDetect uses a Convolutional Neural Network (CNN) to classify facial expressions into predefined emotion categories such as Happy, Sad, Angry, Surprise, Neutral, Fear, and Disgust. The application can process static images as well as real-time webcam feeds.
 
-This project detects human emotions from static image input using deep learning and computer vision. It uses OpenCV for face detection and a pre-trained CNN model to predict the emotion.
+---
 
-## 🧠 Emotions Detected
+## Project Overview
 
-- Angry 😠  
-- Disgust 😖  
-- Fear 😨  
-- Happy 😄  
-- Sad 😢  
-- Surprise 😲  
-- Neutral 😐  
+EmoDetect combines OpenCV's Haar Cascade face detector with a CNN model trained on facial emotion data. Faces are detected in images or video streams, preprocessed, and passed through the CNN to output the most likely emotion.
 
-## 🛠️ Technologies Used
+---
 
-- Python
-- OpenCV
-- Keras / TensorFlow
-- NumPy
-- Matplotlib (for visualization)
-- Jupyter Notebook
+## Project Structure
 
-## 📁 Folder Structure
-
-```
-Emotion_detection/
-├── emotion_model.h5        # Trained CNN model
-├── test_image.png          # Sample image for testing
-├── test_code.ipynb         # Notebook to run emotion detection
-├── emotion_env/            # Virtual environment (ignored by git)
-├── .gitignore              # Ignores emotion_env/ from Git tracking
-└── README.md               # This file
+```plaintext
+EmoDetect/
+├── main.py                                # Emotion detection script for images or webcam
+├── test.py                                # Script to test on sample images
+├── testdata.py                            # Utilities for test data handling
+├── haarcascade_frontalface_default.xml    # OpenCV Haar Cascade face detector
+├── model_file.h5                          # Trained CNN model weights
+├── requirement.txt                        # Python dependencies
+├── .gitignore                             # Files and folders to ignore in Git
+├── download.jpeg                          # Sample images for demonstration
+├── emotion.jpeg
+├── happy.jpeg
+├── sad.jpeg
+├── profile.jpg
+└── README.md                              # Project documentation (this file)
 ```
 
-## 🚀 How to Run
+---
 
-1. **Clone the Repository**
+## Installation
+
+1. Clone the repository:
+
    ```bash
-   git clone https://github.com/grimreapermanasvi/EmotionDetection.git
-   cd EmotionDetection
+   git clone https://github.com/grimreapermanasvi/EmoDetect.git
+   cd EmoDetect
    ```
 
-2. **Create and Activate Virtual Environment**
+2. Create and activate a virtual environment (recommended):
+
    ```bash
-   python -m venv emotion_env
-   emotion_env\Scripts\activate  # Windows
+   python -m venv venv
+   source venv/bin/activate    # Linux/macOS
+   venv\\Scripts\\activate   # Windows
    ```
 
-3. **Install Requirements**
-   *(You can generate `requirements.txt` by running `pip freeze > requirements.txt` first)*
+3. Install dependencies:
+
    ```bash
-   pip install -r requirements.txt
+   pip install -r requirement.txt
    ```
 
-4. **Run the Notebook**
-   Open `test_code.ipynb` and run all cells. Upload an image and detect the emotion.
+---
 
-## 🧪 Sample Output
+## Usage
 
-The model draws a bounding box around the detected face and displays the predicted emotion above it.
+### Real-time Webcam Detection
 
-## 📌 Notes
+```bash
+python main.py --webcam 0 --model model_file.h5
+```
 
-- Make sure `emotion_env/` is added to `.gitignore`.
-- The model file `emotion_model.h5` should be kept under 100MB to be pushed to GitHub, or uploaded using Git LFS.
+* **--webcam**: Index of the webcam device (default: 0)
+* **--model**: Path to the trained model weights
 
+### Static Image Emotion Detection
+
+```bash
+python main.py --image path/to/image.jpg --model model_file.h5
+```
+
+* **--image**: Path to the input image file
+* **--model**: Path to the trained model weights
+
+### Running Tests on Sample Images
+
+```bash
+python testdata.py --data_folder . --model model_file.h5
+```
+
+* **--data\_folder**: Folder containing sample images (e.g., download.jpeg)
+* **--model**: Path to the trained model weights
+
+---
+
+## Dataset
+
+EmoDetect uses a CNN model trained on facial expression datasets (e.g., FER-2013). If you'd like to retrain or fine-tune the model, prepare your data in folders by emotion and use a training script of your choice.
+
+---
+
+## Model Architecture
+
+The CNN model consists of multiple Conv2D and MaxPooling2D layers with ReLU activations, interleaved with Dropout for regularization, followed by Dense layers culminating in a softmax output for classification.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+*Happy coding!*
