@@ -45,7 +45,7 @@ EmoDetect/
    ```bash
    python -m venv venv
    source venv/bin/activate    # Linux/macOS
-   venv\\Scripts\\activate   # Windows
+   venv\Scripts\activate     # Windows
    ```
 
 3. Install dependencies:
@@ -64,8 +64,8 @@ EmoDetect/
 python main.py --webcam 0 --model model_file.h5
 ```
 
-* **--webcam**: Index of the webcam device (default: 0)
-* **--model**: Path to the trained model weights
+- **--webcam**: Index of the webcam device (default: 0)  
+- **--model**: Path to the trained model weights
 
 ### Static Image Emotion Detection
 
@@ -73,8 +73,8 @@ python main.py --webcam 0 --model model_file.h5
 python main.py --image path/to/image.jpg --model model_file.h5
 ```
 
-* **--image**: Path to the input image file
-* **--model**: Path to the trained model weights
+- **--image**: Path to the input image file  
+- **--model**: Path to the trained model weights
 
 ### Running Tests on Sample Images
 
@@ -82,8 +82,8 @@ python main.py --image path/to/image.jpg --model model_file.h5
 python testdata.py --data_folder . --model model_file.h5
 ```
 
-* **--data\_folder**: Folder containing sample images (e.g., download.jpeg)
-* **--model**: Path to the trained model weights
+- **--data_folder**: Folder containing sample images (e.g., download.jpeg)  
+- **--model**: Path to the trained model weights
 
 ---
 
