@@ -58,19 +58,10 @@ EmoDetect/
 
 ## Usage
 
-### Real-time Webcam Detection
-
-```bash
-python main.py --webcam 0 --model model_file.h5
-```
-
-- **--webcam**: Index of the webcam device (default: 0)  
-- **--model**: Path to the trained model weights
-
 ### Static Image Emotion Detection
 
 ```bash
-python main.py --image path/to/image.jpg --model model_file.h5
+python main.py 
 ```
 
 - **--image**: Path to the input image file  
@@ -79,7 +70,7 @@ python main.py --image path/to/image.jpg --model model_file.h5
 ### Running Tests on Sample Images
 
 ```bash
-python testdata.py --data_folder . --model model_file.h5
+python testdata.py 
 ```
 
 - **--data_folder**: Folder containing sample images (e.g., download.jpeg)  
@@ -99,8 +90,3 @@ The CNN model consists of multiple Conv2D and MaxPooling2D layers with ReLU acti
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-*Happy coding!*
